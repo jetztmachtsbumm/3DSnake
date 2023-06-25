@@ -20,6 +20,15 @@ public class SnakeHead : MonoBehaviour
         HandleRotation();
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag.Equals("Apple"))
+        {
+            GameManager.Instance.IncreaseScore();
+            Destroy(other.gameObject);
+        }
+    }
+
     private void HandleMovement()
     {
         float movementSpeed = 5f;
